@@ -31,6 +31,6 @@ private final int calculateWithUseRecursive(int a, int b) {
 
     public static void main(String[] args) {
         NWD nwd = new NWD();
-        System.out.println("NWD=" + nwd.calculateWithUseRecursive(8,12));
+        System.out.println("NWD=" + nwd.calculate(8,12));
     }
 }

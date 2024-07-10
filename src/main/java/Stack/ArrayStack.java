@@ -26,19 +26,19 @@ public class ArrayStack<E> implements Stack<E>{
     }
 
     @Override
-    public void push(E element) {
+    public void push(E element) {// add element to the top of the stack
         if(size() == data.length) throw new IllegalStateException("Stack is full");
         data[++t] = element;
     }
 
     @Override
-    public E top() {
+    public E top() {// get the top element of the stack
        if(isEmpty()) return null;
        return data[t];
     }
 
     @Override
-    public E pop() {
+    public E pop() {  // remove and return the top element from the stack
         if (isEmpty()) return null;
         E answer = data[t];
         data[t] = null;

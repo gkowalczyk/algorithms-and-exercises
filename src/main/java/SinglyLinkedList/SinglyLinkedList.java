@@ -19,7 +19,9 @@ public class SinglyLinkedList<E> {
         return size == 0;
     }
 
-    public E front() { //first element of list
+
+
+    public E firstElement() { //first element of list
         if(isEmpty()) {
             return null;
         }
@@ -27,11 +29,13 @@ public class SinglyLinkedList<E> {
     }
 
     public E tail() { //last element of list
-        return tail.getElement();
+        return !isEmpty() ? tail.getElement() : null;
     }
 
-    public void addFirst(E element) {
-        head = new Node<>(element, head);
+
+
+    public void addFirst(E element) {  // head = null    element-Node-next  ->>>>    element-Node-next
+        head = new Node<>(element, head);  //zamieniamy kolejność 1 elementu i drugiego
         if (size == 0) {
            tail = head;
         }
@@ -40,14 +44,18 @@ public class SinglyLinkedList<E> {
 
     public void addLast(E element) {
         Node<E> newest = new Node<>(element, null);
+
         if (isEmpty()) {
             head = newest;
-        } else {
-            tail.setNext(newest);
-            tail = newest;
+               } else {
+                   tail.setNext(newest);
+               tail = newest;
             size++;
+                 }
         }
-    }
+
+
+
 
     public E removeFirst() {
         if (isEmpty()) {

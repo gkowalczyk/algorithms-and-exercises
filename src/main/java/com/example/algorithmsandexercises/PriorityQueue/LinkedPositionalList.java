@@ -380,7 +380,9 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 
   //---------------- nested PositionIterable class ----------------
   private class PositionIterable implements Iterable<Position<E>> {
-    public Iterator<Position<E>> iterator() { return new PositionIterator(); }
+
+    public Iterator<Position<E>> iterator()
+    { return new PositionIterator(); }
   } //------------ end of nested PositionIterable class ------------
 
   /**

@@ -24,28 +24,30 @@ public class MergeSort {
 
     }
     private static void sort(int[] array, int[] left, int[] right) {
-        int i = 0, j = 0, k = 0;
-        while (i < left.length && j < right.length) {
-            if (left[i] < right[j]) {
-                array[k] = left[i];
-                i++;
-            } else {
-                array[k] = right[j];
-                j++;
-            }
-            k++;
-        }
-        while (i < left.length) {
+      int i = 0; int j = 0; int k = 0;
+//      [2, 6]
+      // [2]  [6]
+    while (i < left.length && j < right.length) {
+        if(left[i] < right[j]) {
             array[k] = left[i];
-            i++;
-            k++;
+            i++; //inkrementacja i bo lewa wartość już najmniejsza, wtedy i < left.lenght= false
+        } else {
+            array[k] = right[j];
+            j++;
         }
+        k++;// k służy do inkrementacji tablicy array
+    }
+    while (i < left.length) {
+        array[k] = left[i];
+        i++;
+        k++;
+    }
         while (j < right.length) {
             array[k] = right[j];
             j++;
             k++;
         }
-    }
+        }
     public static void main(String[] args) {
    int[] arr = new int[]{1,2,6,5,4,3};
     merge(arr);
@@ -57,3 +59,16 @@ public class MergeSort {
 // 1,2,6
 //1  2,6
 //    2 6
+
+//cofamy się  w rekurencji do :
+//  1,2,6
+//1    [2,6]
+
+
+//5   [4,3]
+//   4     3
+// cofamy się w rekurencji
+//   5,4,3
+//     5       3,4
+
+

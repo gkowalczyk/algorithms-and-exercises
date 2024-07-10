@@ -15,9 +15,13 @@ public class OffBinary {
     //Input: new String[] {"44", "111111"}
     //Output: 3
 //1, 2, 4, 8, 16, 32, 64, 128
+    // 8         1 0 0 0
+    // 13   1 1 0 1
     // 128  64   32   16   8  4   2   1
     //56      1 1 1 0 0 0          32   16   8  0  0   0
     // 44     1  0  1  1  0  0
+  //  0b00001010
+      //000b000010
     public static String OffBinary(String[] strArr) {
         String binary = strArr[1];
         int counter = 0;
@@ -32,7 +36,7 @@ public class OffBinary {
     public static void main(String[] args) {
         // keep this function call here
         Scanner s = new Scanner(System.in);
-        System.out.print(OffBinary(new String[]{"44", "111111"}));
+        System.out.print(OffBinary(new String[]{"4", "111111"}));
     }
 }
 

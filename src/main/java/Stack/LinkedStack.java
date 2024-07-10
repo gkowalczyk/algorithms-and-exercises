@@ -1,8 +1,15 @@
 package Stack;
 
 import SinglyLinkedList.SinglyLinkedList;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class LinkedStack<E> implements Stack<E> {
+    @Override
+    public String toString() {
+        return "LinkedStack{" +
+                "data=" + data +
+                '}';
+    }
 
     SinglyLinkedList<E> data = new SinglyLinkedList<E>();
 
@@ -26,7 +33,7 @@ public class LinkedStack<E> implements Stack<E> {
 
     @Override
     public E top() {
-        return data.front();
+        return data.firstElement();
     }
 
     @Override

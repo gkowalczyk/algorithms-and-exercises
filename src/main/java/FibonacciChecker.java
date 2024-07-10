@@ -38,7 +38,8 @@ public class FibonacciChecker {
     public static void main(String[] args) {
         // keep this function call here
         Scanner s = new Scanner(System.in);
-        System.out.print(FibonacciChecker(1000));
+        System.out.print(FibonacciChecker(5));
+        System.out.println(fibonacci(5));
     }
 }
 

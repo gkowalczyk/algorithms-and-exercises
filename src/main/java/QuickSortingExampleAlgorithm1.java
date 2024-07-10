@@ -1,29 +1,31 @@
+import java.util.Arrays;
+
 public class QuickSortingExampleAlgorithm1 {
 
-    public int partition(int arr[], int low, int high) {
-        int pivot = arr[high];
-        int indexSmallest = low - 1;
+    public int partition(int arr[], int low, int high) { // x,y...z < pivot < a,b...c
 
-        for (int j = low; j < high; j++) {
-            if (arr[j] <= pivot) {
-                indexSmallest++;
-                int temporary = arr[indexSmallest];
-                arr[indexSmallest] = arr[j];
-                arr[j] = temporary;
+        int pivot = arr[high];
+        int medium = low -1;
+        for(int i = low; i < high; i++) {
+            if(arr[i] <= pivot) {
+                medium++;
+                int temp = arr[medium];
+                arr[medium] = arr[i];
+                arr[i] = temp;
             }
         }
-        int temporary = arr[indexSmallest + 1];
-        arr[indexSmallest + 1] = arr[high];
-        arr[high] = temporary;
-        return indexSmallest + 1;
+         int temp = arr[medium + 1];
+        arr[medium +1] = arr[high];
+        arr[high] = temp;
+
+        return medium + 1;
     }
 
     public void sort(int arr[], int low, int high) {
-
-        if (high > low) {
+        if(low < high) {
             int pivot = partition(arr, low, high);
-            sort(arr, low, pivot - 1);
-            sort(arr, pivot + 1, high);
+            sort(arr, low, pivot -1 );
+            sort(arr, pivot + 1,  high);
         }
     }
 
@@ -35,11 +37,12 @@ public class QuickSortingExampleAlgorithm1 {
     }
 
     public static void main(String args[]) {
-        int arr[] = {-1, 7, -6, 9, 1, 5};
+        int arr[] = {1, -7, -6, -11};
         int n = arr.length;
         QuickSortingExampleAlgorithm1 ob = new QuickSortingExampleAlgorithm1();
         ob.sort(arr, 0, n - 1);
         System.out.println();
         printArray(arr);
+       // Arrays.sort(arr);
     }
 }

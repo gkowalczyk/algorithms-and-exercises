@@ -17,25 +17,37 @@ class RunLenght {
 //Output: 3w3b1w
 
     public static String StringChallenge(String str) {
+      // int counter = 1;
+      //  int i = 0;
+        for (int n = 0; n < str.length() ; n++) {
+            //  System.out.println("                     petla for n :" + n);
 
-        for (int n = 0; n < str.length(); n++) {
-         //  System.out.println("                     petla for n :" + n);
 
+          int counter = 1 ;
 
-            int counter = 1;
+            // while (n < str.length() -1  // -1  bo mamy przy 5 przebiegu np dla "aaabbcc" nie mam wartości n+1
 
-            while (n < str.length() -1  // -1  bo mamy przy 5 przebiegu np dla "aaabbcc" nie mam wartości n+1
-                    && str.charAt(n) == str.charAt(n + 1)) {
-               // System.out.println("n0:" + n);
-                counter++;
-                n++;
-               //System.out.println("n1:" + n);
-              //  System.out.println("char(n):" + str.charAt(n));
-               // System.out.println("counter:" + counter);
-
+            for (int i = 0; i < str.length() - n -1; i++) {
+                System.out.println("\n");
+                System.out.println( str.length() - n -1);
+                if ( str.charAt(n) == str.charAt(n + 1)) {
+                    // System.out.println("n0:" + n);
+                    counter++;
+                    n++;
+                    //     }
+                    //System.out.println(counter + "" + str.charAt(i));
+                    //System.out.println("n1:" + n);
+                    //  System.out.println("char(n):" + str.charAt(n));
+                    // System.out.println("counter:" + counter);
+                }
             }
-            System.out.println(counter + "" + str.charAt(n));
-        }
+                System.out.println(counter + "" + str.charAt(n));
+            //counter= 1;
+            }
+
+
+           // System.out.println(counter + "" + str.charAt(i));
+
         return "";
     }
 

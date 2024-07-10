@@ -46,7 +46,7 @@ public class SortedPQ<K,V> extends AbstractPriorityQueue<K,V> {
         Entry<K, V> newest = new PQEntry<>(key, value);
         Position<Entry<K, V>> walk = list.last();
         //cofamy się w liście
-        while (walk != null && compare(newest, walk.getElement()) < 0)
+        while (walk != null && compare(newest, walk.getElement()) < 0)   // walk > newest
             walk = list.before(walk);
         if (walk == null)
             list.addFirst(newest);
@@ -78,4 +78,3 @@ public class SortedPQ<K,V> extends AbstractPriorityQueue<K,V> {
     return sb.toString();
 }
 }
-

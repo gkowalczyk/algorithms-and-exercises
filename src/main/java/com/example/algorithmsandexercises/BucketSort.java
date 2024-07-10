@@ -13,41 +13,39 @@ public class BucketSort {
     public static int[] getMinMax(int[] arr) {
     int min = arr[0];
     int max = arr[0];
-
-    for(int i = 0; i < arr.length; i++) {
-    if(arr[i] > min) {
-        max = arr[i];
-    } else {
-        min = arr[i];
-    }
-    }
+        for(int i = 0; i < arr.length; i++) {
+            if(arr[i] > min) {
+                max = arr[i];
+            } else {
+                min = arr[i];
+            }
+        }
       return new int[]{min, max};
     }
-// 1  2  3 5 5 2 2 1
-    //b1: 2   b2: 3   b3: 1   b4: 0 b5 : 2
+// new int[]{1,5,1,1})
+    //b1: 3   b2: 0   b3: 0   b4: 1
 
-    public static int[] sort(int[] tab) {
-        int[] buckets;
-        int[]minMaX = getMinMax(tab);
-        int min = minMaX[0];
-        int max = minMaX[1];
-
-        buckets = new int[max - min + 1];
+    public static int[] sort(int[] tab) {  // [ 3   0    0  0  1 ]
+        int[] getMaxMin = getMinMax(tab);
+        int min = getMaxMin[0];
+        int max = getMaxMin[1];
+     int[] buckets = new int[max - min + 1];
         for(int i = 0; i < tab.length; i++) {
-            buckets[tab[i] - min]++;
+         buckets[tab[i] - min]++;
         }
-        int j = 0;
         int i = 0;
+        int j =0;  //index of array bucket
 
         while(i < tab.length) {
             if(buckets[j] != 0) {
                 tab[i] = min + j;
                 i++;
-                buckets[j]--;
+              buckets[j]--;
             } else {
                 j++;
             }
         }
+
         return tab;
     }
 

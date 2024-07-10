@@ -14,9 +14,7 @@ public class ChangeCodeOnHex {
 
             fileLines.
                     flatMapToInt(String::chars)
-
                     .forEach(ch -> {
-
                         String hex = "";
 
                         if (ch == '\t') {

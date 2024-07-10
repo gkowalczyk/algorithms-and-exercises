@@ -1,4 +1,4 @@
-
+import java.util.Objects;
 
 public class User {
     private Long id;
@@ -85,6 +85,19 @@ public class User {
                     ", email='" + email + '\'' +
                     ", password='" + password + '\'' +
                     '}';
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Builder builder = (Builder) o;
+            return Objects.equals(id, builder.id) && Objects.equals(name, builder.name) && Objects.equals(lastName, builder.lastName) && Objects.equals(login, builder.login) && Objects.equals(email, builder.email) && Objects.equals(password, builder.password);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(id, name, lastName, login, email, password);
         }
     }
 }
