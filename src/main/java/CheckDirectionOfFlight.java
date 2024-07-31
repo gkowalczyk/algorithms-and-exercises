@@ -7,13 +7,15 @@ public class CheckDirectionOfFlight {
     public static final String STRAIGHT = "STRAIGHT";
 
     public static void main(String[] args) {
-        System.out.println(calculateDirection(0, 280));
+        System.out.println(calculateDirection(90, 300));
     }
 
     public static String calculateDirection(int startDirection, int endDirection) {
 
         int internalAngle = (startDirection - endDirection + 360) % 360;
         int externalAngle = (endDirection - startDirection + 360) % 360;
+        System.out.println(internalAngle);
+        System.out.println(externalAngle);
 
         if (internalAngle > externalAngle) {
             return RIGHT;

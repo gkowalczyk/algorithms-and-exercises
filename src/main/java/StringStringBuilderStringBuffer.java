@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringStringBuilderStringBuffer {
 
 //https://javastart.pl/baza-wiedzy/klasy/string-stringbuffer-i-stringbuilder
@@ -6,7 +9,10 @@ public class StringStringBuilderStringBuffer {
 
     public static void main(String[] args) throws InterruptedException {
 
-
+List<String> list = List.of("Java", "Python", "C++", "JavaScript", "Ruby", "C#", "PHP", "Perl", "Go", "Swift");
+List<String> mutableList = new ArrayList<>(list);
+mutableList.replaceAll(e -> e.replace('a', 'm'));
+        System.out.println(mutableList);
 
         //StringBuilder __>>>>>>>
 
@@ -96,7 +102,7 @@ stringBuilder.insert(4, 8); //metoda insert
         long start1 = System.nanoTime();
         StringBuilder sb = new StringBuilder(s);//tworzymy obiekt przed pętlą
         for (int i = 0; i < 1000; i++) {
-            sb.append("a");
+            sb.append("a"); // po każdym dodaniu znaku do obiektu StringBuilder
         }
         s = sb.toString();
         System.out.println("Time2:" + (System.nanoTime() - start1 + "ns"));
@@ -138,6 +144,122 @@ new Thread(() -> {
 //String jest immutable, StringBuilder i StringBuffer – mutable (bufor)
 //String przechowywany jest w String Pool, StringBuilder i StringBuffer – w normalnej stercie
 //StringBuilder i StringBuffer są znacznie wydajniejsze do celów modyfikacji sekwencji znaków
+
+
+        //Sprawdzenie niezmienności obiektów String
+        String sachin = "Sachin";
+        String sachin1 = new String("Sachin1");
+
+
+        // concat() method appends
+        // the string at the end
+        sachin.concat(" Tendulkar");
+        sachin1.concat(" Tendulkar");//z
+        sachin1 = "Sachin2";// nowy obiekt // zwróci "Sachin2"
+        sachin1 =  sachin1.concat(" Tendulkar"); //zwróci "Sachin2 Tendulkar"
+
+
+        // This will print Sachin
+        // because strings are
+        // immutable objects
+        System.out.println(sachin);
+        System.out.println("\n");
+
+        System.out.println(sachin1);
+        System.out.println("\n");
+
+        StringBuffer stringBuffer1 = new StringBuffer("stringBuffer");
+        System.out.println(stringBuffer1.append("stringbuffer")); // występuje mutowalność, więc można zmodyfikować obiekt bez tworzenia nowego
+
+
+
+// Internowanie Stringów
+
+        String demoString = new String("Geeks"); // utworzenie Stringa w sposób dynamiczny oznacza że nie jest on przechowywany w puli Stringów
+        String internString = demoString.intern();//intern() - metoda zwraca referencję do obiektu String, który jest przechowywany w puli Stringów
+        System.out.println(internString == demoString); //false
+        System.out.println(internString.equals(demoString)); //true
+        System.out.println(internString);
+
+        //kolejny przykład
+
+        byte ascii[] = { 71, 70, 71 };
+
+        String firstString = new String(ascii);
+        System.out.println(firstString);
+
+        String secondString = new String(ascii, 1, 2);
+        System.out.println(secondString);
+
+        //Inne motody z klasy String
+
+
+        String string= "GeeksforGeeks";
+        // or String s= new String ("GeeksforGeeks");
+
+        // Returns the number of characters in the String.
+        System.out.println("String length = " + string.length());
+
+        // Returns the character at ith index.
+        System.out.println("Character at 3rd position = "
+                + string.charAt(3));
+
+        // Return the substring from the ith  index character
+        // to end of string
+        System.out.println("Substring " + string.substring(3));
+
+        // Returns the substring from i to j-1 index.
+        System.out.println("Substring  = " + string.substring(2,5));
+
+        // Concatenates string2 to the end of string1.
+        String string1 = "Geeks";
+        String string2 = "forGeeks";
+        System.out.println("Concatenated string  = " +
+                string1.concat(string2));
+
+        // Returns the index within the string
+        // of the first occurrence of the specified string.
+        String s4 = "Learn Share Learn";
+        System.out.println("Index of Share " +
+                s4.indexOf("Share"));
+
+        // Returns the index within the string of the
+        // first occurrence of the specified string,
+        // starting at the specified index.
+        System.out.println("Index of a  = " +
+                s4.indexOf('a',3));
+
+        // Checking equality of Strings
+        Boolean out = "Geeks".equals("geeks");
+        System.out.println("Checking Equality  " + out);
+        out = "Geeks".equals("Geeks");
+        System.out.println("Checking Equality  " + out);
+
+        out = "Geeks".equalsIgnoreCase("gEeks ");// equalsIgnoreCase porównuje stringi ignorując
+        System.out.println("Checking Equality " + out);
+
+        //If ASCII difference is zero then the two strings are similar
+        int out1 = s1.compareTo(s2);
+        System.out.println("the difference between ASCII value is="+out1);
+        // Converting cases
+        String word1 = "GeeKyMe";
+        System.out.println("Changing to lower Case " +
+                word1.toLowerCase());
+
+        // Converting cases
+        String word2 = "GeekyME";
+        System.out.println("Changing to UPPER Case " +
+                word2.toUpperCase());
+
+        // Trimming the word
+        String word4 = " Learn Share Learn ";
+        System.out.println("Trim the word " + word4.trim());
+
+        // Replacing characters
+        String str1 = "feeksforfeeks";
+        System.out.println("Original String " + str1);
+        String str2 = "feeksforfeeks".replace('f' ,'g') ;
+        System.out.println("Replaced f with g -> " + str2);
 
 
     }

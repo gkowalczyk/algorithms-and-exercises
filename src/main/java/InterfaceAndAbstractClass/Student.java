@@ -7,6 +7,10 @@ public class Student extends User{
         super(userName, password);
     }
 
+    public Student() {
+        super();
+    }
+
     @Override
     void sendMessage(String message) {
         System.out.println("Wysyłanie wiadomości");

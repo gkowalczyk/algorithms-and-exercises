@@ -29,11 +29,23 @@ public class ConcatenationString {
 
         //inna metoda
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();// znaki łączymy za pomocą StingBuilder co jest bardziej wydajne niż konkatenacja bo nie tworzy nowych obiektów String
+
         for (String company : companies) {
             sb.append(company).append(",");
         }
         sb.setLength(con.length());
         System.out.println(sb.toString());
+
+
+
+
+
+
+
     }
+
+
+
+
 }

@@ -12,6 +12,10 @@ public abstract class User {     // klasa ogólna abstrakcyjna, pomocnicza, klas
         this.password = password;
     }
 
+    public User() {
+
+    }
+
     void login(String username, String password) {
         if (username.equals(this.userName) && password.equals(this.password)) {
             System.out.println("Logowanie użytkownika" + username + "/" + password);
