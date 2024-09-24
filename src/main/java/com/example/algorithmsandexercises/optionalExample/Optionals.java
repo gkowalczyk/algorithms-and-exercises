@@ -30,7 +30,7 @@ public static Optional<String> findUserNameById(int id) {
         String name = "John";
         String name1 = "Gregory";
         Optional<String> nameOptional = Optional.of(name);
-        Optional<String> nameOptional2 = Optional.ofNullable(name);
+        Optional<String> nameOptional2 = Optional.ofNullable(name);// zwroci pusty obiekt, jeśli wartość jest nullem
 
 
         System.out.println(nameOptional.get());

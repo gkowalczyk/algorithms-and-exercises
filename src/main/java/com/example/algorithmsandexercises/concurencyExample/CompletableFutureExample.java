@@ -1,5 +1,7 @@
 package com.example.algorithmsandexercises.concurencyExample;
 
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -8,7 +10,7 @@ public class CompletableFutureExample {
 
     public static void main(String[] args) {
 
-
+       // SimpleAsyncTaskExecutor
 
         CompletableFuture<String> completableFuture = fetchDataFromServer();
         System.out.println("Pobieranie danych z serwera");//dalsza praca na wątku głównym

@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion> <!-- wersja modelu  -->
+
+    <groupId>com.example</groupId> <!-- identyfikator grupy, tożsame z pakietem w strukturze katalogów  -->
+    <artifactId>spring-boot-example</artifactId> <!-- identyfikator grupy, nazwa artefaktu przy tworzeniu aplikacji , nazwy pliku JAR LUB WAR  -->
+    <version>1.0.0-SNAPSHOT</version><!-- wersja aplikacji   -->
+    <packaging>jar</packaging><!-- format artefaktu  -->
+
+
+    <repositories><!-- zewnętrzne żródła z których Maven pobiera zależności  -->
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+
+
+    <name>Spring Boot Example</name>
+    <description>Przykładowy projekt Spring Boot</description>
+
+    <properties> <!-- klucz wartość , umożliwia ustawienie parametrów które można odwoływać w innych sekcjach POM   -->
+        <java.version>17</java.version>
+        <spring.boot.version>3.1.2</spring.boot.version>
+    </properties>
+
+    <dependencies><!-- lista bibliotek do implementacji  -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+
+
+    <build> <!-- sekcja budowania projektu, zawiera zestaw wtyczek do budowania projektu, kompilacji, testowania  -->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal> <!-- przepakowywanie projektu w plik wykonywalny   -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
